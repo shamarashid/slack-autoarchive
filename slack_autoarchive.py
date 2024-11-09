@@ -94,7 +94,7 @@ This script was run from this repo: https://github.com/Symantec/slack-autoarchiv
                         'Need to add bot to channel described by ' + str(payload)
                     )
                     self.join_channel(payload['channel'])
-                    return response.json()
+                    return self.slack_api_http(api_endpoint, payload, method)
                 else:            
                     self.logger.error(
                         response.json()['error']
